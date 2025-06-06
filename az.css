@@ -60,7 +60,7 @@ br {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1800px; /* 1600pxから1800pxに拡大 */
+    max-width: 1700px; /* 1600pxから1800pxに拡大 */
     margin: 0 auto;
     padding: 0 2rem; /* パディングも少し増やす */
 }
@@ -122,7 +122,8 @@ br {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 12rem; /* 4remから12remに増やしてさらに間隔を広げる */
+    gap: 8rem; /* 4remから8remに増やしてさらに間隔を広げる */
+    white-space: nowrap;
 }
 
 .nav-links a {
