@@ -6,29 +6,50 @@
     <title>BlueOne Plus 〜オール浄水システム〜 | 株式会社AZメンテナンス</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="az.css">
     <link rel="stylesheet" href="css/water.css">
 </head>
 <body>
     <header class="header">
         <nav class="nav">
             <div class="logo">
-                <a href="az.html">
+                <a href="index.html">
                     <img src="image/header-logo.png" alt="AZメンテナンス">
                 </a>
             </div>
             <ul class="nav-links">
-                <li><a href="az.html" id="home-link">ホーム</a></li>
-                <li><a href="az.html#about">企業理念</a></li>
-                <li><a href="az.html#services">事業内容</a></li>
-                <li><a href="az.html#company">会社概要</a></li>
-                <li><a href="az.html#contact">お問い合わせ</a></li>
+                <li><a href="index.html" id="home-link">ホーム</a></li>
+                <li><a href="index.html#about">企業理念</a></li>
+                <li><a href="index.html#services">事業内容</a></li>
+                <li><a href="index.html#company">会社概要</a></li>
+                <li><a href="index.html#contact">お問い合わせ</a></li>
             </ul>
             <div class="header-contact">
                 <p class="contact-message"><span class="message-text">まずはお気軽にお問い合わせください</span></p>
                 <a href="tel:052-990-3608" class="contact-phone"><span class="phone-number">052-990-3608</span></a>
                 <p class="contact-hours"><span class="hours-label">受付時間</span><span class="hours-time">9:00～18:00</span><span class="hours-note">(土日祝も受付可能)</span></p>
             </div>
+            <!-- モバイル用の電話アイコン -->
+            <a href="tel:052-990-3608" class="mobile-phone-icon">
+                <i class="fas fa-phone"></i>
+            </a>
+            <!-- モバイル用のハンバーガーメニュー -->
+            <button class="mobile-menu-toggle" aria-label="メニューを開く">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
         </nav>
+        <!-- モバイルメニュー -->
+        <div class="mobile-menu">
+            <ul class="mobile-nav-links">
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="index.html#about">企業理念</a></li>
+                <li><a href="index.html#services">事業内容</a></li>
+                <li><a href="index.html#company">会社概要</a></li>
+                <li><a href="index.html#contact">お問い合わせ</a></li>
+            </ul>
+        </div>
     </header>
 
     <main class="content-main">
@@ -389,11 +410,11 @@
             </div>
             <div class="footer-links">
                 <ul>
-                    <li><a href="az.html" id="home-link">ホーム</a></li>
-                    <li><a href="az.html#about">企業理念</a></li>
-                    <li><a href="az.html#services">事業内容</a></li>
-                    <li><a href="az.html#company">会社概要</a></li>
-                    <li><a href="az.html#contact">お問い合わせ</a></li>
+                    <li><a href="index.html" id="home-link">ホーム</a></li>
+                    <li><a href="index.html#about">企業理念</a></li>
+                    <li><a href="index.html#services">事業内容</a></li>
+                    <li><a href="index.html#company">会社概要</a></li>
+                    <li><a href="index.html#contact">お問い合わせ</a></li>
                 </ul>
             </div>
         </div>
@@ -402,6 +423,7 @@
         </div>
     </footer>
 
+    <script src="az.js"></script>
     <script src="water.js"></script>
 </body>
 </html>
