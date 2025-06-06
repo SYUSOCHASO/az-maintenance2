@@ -674,7 +674,7 @@ br {
 /* 7周年セクション */
 .anniversary-section {
     padding: 0;
-    background: transparent;
+    background: linear-gradient(135deg, #f0f8ff 0%, #e6f2ff 100%);
     position: relative;
     overflow: hidden;
 }
