@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('#home-link').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = 'az.html';
+            window.location.href = 'index.html';
         });
     });
 
