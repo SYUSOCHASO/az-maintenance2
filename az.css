@@ -60,9 +60,9 @@ br {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1400px;
+    max-width: 1800px; /* 1600pxから1800pxに拡大 */
     margin: 0 auto;
-    padding: 0 4rem;
+    padding: 0 2rem; /* パディングも少し増やす */
 }
 
 .header-contact {
@@ -122,7 +122,7 @@ br {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 3rem;
+    gap: 12rem; /* 4remから12remに増やしてさらに間隔を広げる */
 }
 
 .nav-links a {
@@ -201,7 +201,7 @@ br {
 .price-badge {
     position: absolute;
     top: -100px;
-    left: 9%; /* より左に移動 */
+    left: 12%; /* 右に移動（9%から12%に） */
     width: 150px; /* サイズを小さく */
     height: 150px; /* サイズを小さく */
     display: flex;
@@ -1129,7 +1129,7 @@ br {
 
 /* hero-title-imgのデフォルトスタイル（PC用） */
 .hero-title-img {
-    max-width: 61% !important;  /* 強制的に50%に設定 */
+    max-width: 60% !important;  /* 強制的に50%に設定 */
     height: auto;
     padding-top: 35px;
 }
@@ -1146,15 +1146,32 @@ br {
 
     .achievement-section {
         padding: 2rem 0 3rem; /* 縦幅を小さくするためにパディングを減らす */
-        margin-top: -20px;
     }
     
     /* 7周年セクションのモバイル対応 */
     .anniversary-section {
         padding: 0;
-        background-image: url('image/anniversary-sp.jpg');
+        background-image: none; /* 背景画像を非表示 */
         background-position: center top;
         position: relative;
+        margin-bottom: -5rem; /* 次のセクションとの間隔を確保 */
+    }
+    
+    /* モバイルではanniversary-sp.jpgを背景に表示 */
+    .anniversary-container {
+        background-image: url('image/anniversary-sp.jpg');
+        background-size: 100% auto; /* 幅100%で高さは自動調整 */
+        background-position: top center;
+        background-repeat: no-repeat;
+        height: auto; /* 高さを自動調整 */
+        min-height: 70vh; /* 最小高さを増やす */
+        max-width: 100%; /* 幅を画面いっぱいに */
+        width: 100vw; /* ビューポートの幅いっぱいに */
+        margin-left: calc(-50vw + 50%); /* 画面幅いっぱいに広げる */
+        margin-right: calc(-50vw + 50%); /* 画面幅いっぱいに広げる */
+        margin-top: 20px; /* 上部の余白を大幅に減らす */
+        padding: 0;
+        padding-top: 20px; /* パディングも減らす */
     }
     
     .anniversary-content {
@@ -1167,10 +1184,11 @@ br {
     .anniversary-image-mobile {
         display: block;
         text-align: center;
-        position: relative;
+        position: absolute; /* absoluteに変更して自由に配置 */
+        top: -3rem; /* 上部に大きく移動 */
+        left: 50%;
+        transform: translateX(-50%); /* 中央揃え */
         z-index: 2;
-        margin-top: -3rem; /* 背景画像の上に重ねる */
-        margin-bottom: 2rem;
     }
     
     .anniversary-image-mobile-img {
@@ -2754,6 +2772,13 @@ br {
     color: black;
 }
 
+/* モバイル用要素をデスクトップでは非表示 */
+.mobile-phone-icon,
+.mobile-menu-toggle,
+.mobile-menu {
+    display: none;
+}
+
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
     html {
@@ -2761,12 +2786,155 @@ br {
     }
 
     .header {
-        display: none;
+        display: block; /* ヘッダーを表示 */
+        padding: 0; /* パディングを完全に削除 */
+        min-height: 60px; /* 最小高さを指定 */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        z-index: 1000;
+        transform: none !important; /* 常に表示 */
+        transition: none !important; /* モバイルではtransitionを無効化 */
+    }
+    
+    .header .logo {
+        display: block; /* ロゴを表示 */
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 60%;
+    }
+    
+    .header .logo img {
+        height: 50px; /* モバイル用のロゴサイズを拡大 */
+        width: auto;
     }
 
-    .nav-links,
+    /* ナビゲーション部分の調整 */
+    .nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem;
+        min-height: 60px;
+        position: relative;
+    }
+
+    /* デスクトップ用のナビゲーションリンクを非表示 */
+    .nav-links {
+        display: none !important;
+    }
+    
+    /* ヘッダーコンタクト部分を非表示 */
     .header-contact {
+        display: none !important;
+    }
+    
+    /* モバイル用の電話アイコン */
+    .mobile-phone-icon {
+        display: block;
+        position: absolute;
+        right: 70px; /* 60pxから70pxに変更して左に移動 */
+        top: 50%;
+        transform: translateY(-50%);
+        color: #06C755;
+        font-size: 2.2rem;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .mobile-phone-icon:hover {
+        color: #003399;
+    }
+    
+    /* ハンバーガーメニューボタン */
+    .mobile-menu-toggle {
+        display: block;
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 30px;
+        height: 25px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+    }
+    
+    .hamburger-line {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: #333;
+        margin: 5px 0;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+    }
+    
+    /* メニューが開いた時のハンバーガーアニメーション */
+    .mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    /* モバイルメニュー */
+    .mobile-menu {
         display: none;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        z-index: 999;
+        max-height: calc(100vh - 60px);
+        overflow-y: auto;
+    }
+    
+    .mobile-menu.active {
+        display: block;
+    }
+    
+    .mobile-nav-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .mobile-nav-links li {
+        border-bottom: 1px solid #eee;
+    }
+    
+    .mobile-nav-links a {
+        display: block;
+        padding: 1.5rem 2rem;
+        color: #333;
+        text-decoration: none;
+        font-size: 1.6rem;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+    }
+    
+    .mobile-nav-links a:hover {
+        background-color: #f5f5f5;
+        color: #003399;
+    }
+
+        /* video-containerの上部パディングを追加 */
+    .video-container {
+        padding-top: 60px; /* ヘッダーの高さ分のパディング */
     }
 
     /* モバイル用の背景画像 */
@@ -2777,7 +2945,13 @@ br {
     /* モバイル用のメイン画像切り替え */
     .hero-title-img {
         content: url('image/main2-sp.png');
-        max-width: 80%; /* 70%から8%に拡大 */
+        max-width: 100%;
+        width: 100%; /* 実際の幅も100%に設定 */
+        height: auto; /* アスペクト比を保持 */
+        display: block; /* ブロック要素として表示 */
+        transform: scale(1.5); /* 1.2倍に拡大 */
+        transform-origin: center; /* 中心を基準に拡大 */
+        padding-bottom: 20px;
     }
 
     /* セクションタイトルのサイズ調整 （企業理念、事業内容、AZメンテナンスが選ばれる7つの理由、会社概要、お問い合わせ）*/
@@ -2878,8 +3052,9 @@ br {
         height: 100px;
         width: 80px;  /* 100pxから80pxに縮小 */
         height: 80px; /* 100pxから80pxに縮小 */
-        top: -60px;  /* -240pxから-220pxに変更して下に移動 */
+        top: -110px;  /* -60pxから-80pxに変更して上に移動 */
         transform: translateX(-50%) rotate(-15deg) scale(0.8);
+        left: -4px;
     }
 
     .badge-text {
@@ -2905,7 +3080,7 @@ br {
     .achievement-badge {
         width: 130px;  /* サイズを指定 */
         height: 130px; /* サイズを指定 */
-        top: -60px;
+        top: -110px;  /* -60pxから-80pxに変更して上に移動 */
         right: -85px;  /* 5pxから-20pxに変更して右に移動 */
         padding: 0;
         transform: none; /* 回転とスケールを削除 */
@@ -2940,8 +3115,8 @@ br {
         -webkit-text-stroke: 1px #333;
         white-space: nowrap;
         text-shadow: 0 0 1px #333;
-        display: inline-block; /* インラインブロック要素に変更 */
-        width: auto; /* 幅を自動調整 */
+        display: block; /* ブロック要素に変更 */
+        width: 100%; /* 幅を100%に設定 */
         max-width: 100%; /* 最大幅を設定 */
     }
 
@@ -3209,6 +3384,8 @@ br {
         flex: 0 0 5rem; /* 10remから7remに縮小 */
         height: 5rem; /* 10remから5remに縮小 */
         margin-right: 1.5rem; /* 2remから1.5remに縮小 */
+        position: relative;
+        top: -1rem; /* アイコンを少し上に移動 */
     }
     
     .service-icon i {
@@ -3233,11 +3410,38 @@ br {
     
     .service-content p {
         font-size: 1.4rem; /* 1.6remから1.4remに縮小 */
+        padding-right: 50px;
+        margin-left: -5rem; /* テキストを左に移動 */
+        padding-left: 0; /* 左のパディングを削除 */
     }
 
     /* モバイルでは.service-content p内の通常のbrタグ（クラスなし）を非表示 */
     .service-content p br:not(.mobile-break) {
         display: none;
+    }
+    
+    /* モバイルではservice-contentのレイアウトはそのまま */
+    .service-content {
+        position: relative;
+    }
+    
+    /* pタグはそのまま */
+    .service-content p {
+        margin-bottom: 1rem;
+    }
+    
+    /* DETAILボタンを絶対配置で右側に */
+    .service-content .detail-link {
+        position: absolute;
+        right: 0;
+        bottom: 2rem;
+        margin-top: 0;
+        left: auto;
+        padding: 0.6rem 0.8rem; /* 0.8rem 1remから縮小 */
+        font-size: 1.2rem; /* フォントサイズも小さく */
+        background-color: rgba(29, 29, 29, 0.2);
+        border-radius: 0.3rem;
+        bottom: 4rem; /* さらに上に移動 */
     }
 
     /* 7つの理由セクションのモバイル調整 */
