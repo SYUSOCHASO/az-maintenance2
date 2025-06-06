@@ -1127,10 +1127,17 @@ br {
     }
 }
 
+/* hero-title-imgのデフォルトスタイル */
+.hero-title-img {
+    max-width: 70% !important;
+    height: auto;
+    padding-top: 35px;
+}
+
 /* ノートパソコン対応 */
 @media (max-width: 1366px) {
     .hero-title-img {
-        max-width: 60% !important; /* 70%から60%に縮小 */
+        max-width: 55%; /* ノートパソコンでは小さく表示 */
     }
 }
 
