@@ -34,7 +34,27 @@
                 <a href="tel:052-990-3608" class="contact-phone">052-990-3608</a>
                 <p class="contact-hours">受付時間9:00～18:00(土日祝も受付可能)</p>
             </div>
+            <!-- モバイル用の電話アイコン -->
+            <a href="tel:052-990-3608" class="mobile-phone-icon">
+                <i class="fas fa-phone"></i>
+            </a>
+            <!-- モバイル用のハンバーガーメニュー -->
+            <button class="mobile-menu-toggle" aria-label="メニューを開く">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
         </nav>
+        <!-- モバイルメニュー -->
+        <div class="mobile-menu">
+            <ul class="mobile-nav-links">
+                <li><a href="#home">ホーム</a></li>
+                <li><a href="#about">企業理念</a></li>
+                <li><a href="#services">事業内容</a></li>
+                <li><a href="#company">会社概要</a></li>
+                <li><a href="#contact">お問い合わせ</a></li>
+            </ul>
+        </div>
     </header>
 
     <div class="video-container" id="home">
@@ -1076,9 +1096,14 @@
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 1000,
-            once: true
+        // ページ読み込み完了後にAOSを初期化
+        window.addEventListener('load', () => {
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 0, // オフセットを0に設定
+                disable: false // 無効化しない
+            });
         });
     </script>
 </body>
