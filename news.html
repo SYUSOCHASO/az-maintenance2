@@ -125,7 +125,27 @@
                 <a href="tel:052-990-3608" class="contact-phone">052-990-3608</a>
                 <p class="contact-hours">受付時間9:00～18:00(土日祝も受付可能)</p>
             </div>
+            <!-- モバイル用の電話アイコン -->
+            <a href="tel:052-990-3608" class="mobile-phone-icon">
+                <i class="fas fa-phone"></i>
+            </a>
+            <!-- モバイル用のハンバーガーメニュー -->
+            <button class="mobile-menu-toggle" aria-label="メニューを開く">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
         </nav>
+        <!-- モバイルメニュー -->
+        <div class="mobile-menu">
+            <ul class="mobile-nav-links">
+                <li><a href="index.html#home">ホーム</a></li>
+                <li><a href="index.html#about">企業理念</a></li>
+                <li><a href="index.html#services">事業内容</a></li>
+                <li><a href="index.html#company">会社概要</a></li>
+                <li><a href="index.html#contact">お問い合わせ</a></li>
+            </ul>
+        </div>
     </header>
 
     <main class="news-archive-main">
@@ -173,6 +193,26 @@
         });
         
         document.addEventListener('DOMContentLoaded', () => {
+            // モバイルメニューの動作
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+            
+            if (mobileMenuToggle && mobileMenu) {
+                // ハンバーガーメニューのクリックイベント
+                mobileMenuToggle.addEventListener('click', () => {
+                    mobileMenuToggle.classList.toggle('active');
+                    mobileMenu.classList.toggle('active');
+                });
+                
+                // メニューリンクをクリックした時にメニューを閉じる
+                mobileNavLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenuToggle.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                    });
+                });
+            }
             // ニュース一覧ページの変数
             const newsGrid = document.getElementById('news-archive-grid');
             const prevButton = document.getElementById('prev-page');
