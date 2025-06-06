@@ -673,20 +673,22 @@ br {
 
 /* 7周年セクション */
 .anniversary-section {
-    padding: 8rem 0 6rem;
-    background-image: url('image/anniversary-pc.jpg');
-    background-size: 100% auto;
-    background-position: center top;
-    background-repeat: no-repeat;
+    padding: 0;
+    background: transparent;
     position: relative;
-    overflow: visible;
-    min-height: 500px; /* 最小高さを増やす */
+    overflow: hidden;
 }
 
 .anniversary-container {
     max-width: 1200px;
+    height: 300px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0;
+    background-image: url('image/anniversary-pc.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
 }
 
 .anniversary-content {
@@ -694,6 +696,8 @@ br {
     justify-content: space-between;
     align-items: center;
     position: relative;
+    height: 100%;
+    padding: 0 2rem;
 }
 
 .anniversary-mascot {
@@ -702,8 +706,13 @@ br {
     flex-direction: column;
     align-items: center;
     flex: 0 0 auto;
-    margin-left: -25rem; /* 左に移動 */
-    top: -2.5rem;
+    margin-left: 5rem; /* 右に移動 */
+}
+
+.anniversary-mascot .mascot-image {
+    max-width: 80px; /* 画像サイズを小さく */
+    height: auto;
+    margin-top: 3rem; /* 画像を下に移動 */
 }
 
 .anniversary-image-right {
@@ -713,12 +722,11 @@ br {
     justify-content: center;
     flex: 0 0 auto;
     margin-left: auto;
-    margin-right: -32rem; /* 右に移動 */
-    top: -7rem;
+    margin-right: 3rem; /* 左に移動 */
 }
 
 .anniversary-image-pc {
-    max-width: 240px !important; /* 画像サイズを拡大 */
+    max-width: 140px !important; /* 画像サイズを拡大 */
     width: 100% !important;
     height: auto !important;
 }
@@ -739,7 +747,7 @@ br {
     background: linear-gradient(135deg, #f0f8ff 0%, #e6f2ff 100%);
     position: relative;
     overflow: hidden;
-    margin-top: -130px;
+    margin-top: 0;
 }
 
 /* フェードインアニメーション用のクラス */
@@ -1004,45 +1012,46 @@ br {
 
 .mascot-bubble {
     position: absolute;
-    top: -50px; /* -60pxから-50pxに変更（少し下に移動） */
     right: -20px; /* leftからrightに変更 */
     background: white;
     border: 2px solid #003399;
     border-radius: 15px;
-    padding: 10px 15px;
+    padding: 1px 10px;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
     z-index: 2;
     animation: fadeIn 1s ease forwards;
     animation-delay: 2s;
     opacity: 0;
     transform: translateY(-5px);
+    z-index: 2;
 }
 
 .mascot-bubble:after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -7px;
     right: 30px; /* leftからrightに変更 */
-    width: 20px;
-    height: 20px;
+    width: 8px;
+    height: 8px;
     background: white;
     border-left: 2px solid #003399; /* border-rightからborder-leftに変更 */
     border-bottom: 2px solid #003399;
     transform: rotate(-45deg); /* 45degから-45degに変更 */
+    z-index: 1;
 }
 
 .mascot-bubble p {
     margin: 0;
     padding: 0;
-    font-size: 1.5rem;
+    font-size: 1.2rem; /* 1.5remから1.2remに縮小 */
     font-weight: bold;
     color: #003399;
     white-space: nowrap;
 }
 
 .mascot-name {
-    margin-top: 0.3rem; /* 0.8remから0.3remに変更（少し上に移動） */
-    font-size: 1.8rem;
+    margin-top: 0.7rem; /* 0.9remから0.7remに変更（少し上に移動） */
+    font-size: 1.3rem;
     font-weight: bold;
     color: #000000; /* 青色(#003399)から黒色(#000000)に変更 */
     opacity: 0;
@@ -1118,6 +1127,12 @@ br {
     }
 }
 
+/* ノートパソコン対応 */
+@media (max-width: 1366px) {
+    .hero-title-img {
+        max-width: 60% !important; /* 70%から60%に縮小 */
+    }
+}
 
 /* モバイル対応 */
 @media (max-width: 768px) {
