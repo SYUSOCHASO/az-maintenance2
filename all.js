@@ -44,14 +44,16 @@ if (isMobile) {
         }
     }, { passive: true });
     
-    // ページ読み込み後に500ms後に手動スクロールイベントをトリガーする
-    // これによりページ読み込み時に1pxスクロールして、表示中の要素を再評価する
-    setTimeout(function() {
-        window.scrollBy(0, 1);
+    // ページ読み込み後に手動スクロールイベントをトリガーする
+    // ただし、URLにハッシュがある場合（他ページからの遷移）はスキップ
+    if (!window.location.hash) {
         setTimeout(function() {
-            window.scrollBy(0, -1);
-        }, 100);
-    }, 500);
+            window.scrollBy(0, 1);
+            setTimeout(function() {
+                window.scrollBy(0, -1);
+            }, 100);
+        }, 500);
+    }
 } else {
     // PCの場合は、マウスホバーで開く
     document.querySelectorAll('.all-item').forEach(item => {
@@ -67,6 +69,6 @@ if (isMobile) {
 document.querySelectorAll('#home-link').forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
-        window.location.href = 'az.html';
+        window.location.href = 'index.html';
     });
 });
