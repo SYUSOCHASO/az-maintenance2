@@ -1129,7 +1129,7 @@ br {
 
 /* hero-title-imgのデフォルトスタイル（PC用） */
 .hero-title-img {
-    max-width: 65% !important;  /* 強制的に50%に設定 */
+    max-width: 63% !important;  /* 強制的に50%に設定 */
     height: auto;
     padding-top: 35px;
 }
