@@ -1,4 +1,26 @@
+
+
 document.addEventListener('DOMContentLoaded', () => {
+    // モバイルメニューの動作
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+    
+    if (mobileMenuToggle && mobileMenu) {
+        // ハンバーガーメニューのクリックイベント
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // メニューリンクをクリックした時にメニューを閉じる
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+    }
     // 7周年セクションとアチーブメントセクションのフェードインアニメーション
     const observeAnniversarySection = () => {
         const fadeElements = document.querySelectorAll('.fade-in-element, .fade-in-right');
@@ -956,7 +978,10 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (targetElement) {
                 const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = targetElement.offsetTop - headerHeight + 100; // +200から+100に変更してスクロール位置を上げる
+                const isMobile = window.innerWidth <= 768;
+                // モバイルの場合は調整値を変更
+                const adjustment = isMobile ? 0 : 100;
+                const targetPosition = targetElement.offsetTop - headerHeight + adjustment;
                 
                 window.scrollTo({
                     top: targetPosition,
@@ -965,6 +990,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
 
     // 動画の自動再生設定
     const video = document.getElementById('myVideo');
@@ -1008,3 +1034,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+
+// ハッシュがある場合の処理を削除（CSSのscroll-margin-topで対応）
