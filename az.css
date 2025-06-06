@@ -1013,7 +1013,7 @@ br {
 
 .mascot-bubble {
     position: absolute;
-    right: -50px; /* leftからrightに変更 */
+    right: -60px; /* leftからrightに変更 */
     background: white;
     border: 2px solid #003399;
     border-radius: 15px;
